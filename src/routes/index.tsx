@@ -72,6 +72,8 @@ import { translations, type Lang } from "@/lib/translations";
 const BOOK_URL = "https://www.hostelworld.com/hostels/p/313345/the-bearded-dad-hostel/";
 const WHATSAPP_URL = "https://wa.me/355695539156";
 const SITE_URL = "https://bluedoorhostel.vercel.app";
+const [EMAIL_USER, EMAIL_DOMAIN] = ['info', 'bluedoorhostel.al'];
+const EMAIL = `${EMAIL_USER}@${EMAIL_DOMAIN}`;
 
 const galleryImages = [
   { src: gallery3, alt: "Interior lounge with chandelier", caption: "A chandelier, cosy corners, and doors that lead to somewhere good." },
@@ -102,7 +104,7 @@ const schemaGraph = {
       description: DESCRIPTION,
       url: SITE_URL,
       telephone: "+355695539156",
-      email: "beardeddadhostel@gmail.com",
+      email: EMAIL,
       image: `${SITE_URL}/og-image.webp`,
       address: {
         "@type": "PostalAddress",
@@ -1133,10 +1135,10 @@ function Index() {
               <span>Rruga Hamid Shijaku, Vila 13<br />Tirana, Albania</span>
             </a>
             <a
-              href="mailto:beardeddadhostel@gmail.com"
+              href={`mailto:${EMAIL}`}
               className="mt-3 flex items-center gap-2 text-primary-foreground/80 hover:text-accent"
             >
-              <Mail className="size-4" /> beardeddadhostel@gmail.com
+              <Mail className="size-4" /> {EMAIL}
             </a>
             <a
               href="tel:+355695539156"
