@@ -71,8 +71,7 @@ import { translations, type Lang } from "@/lib/translations";
 
 const BOOK_URL = "https://www.hostelworld.com/hostels/p/313345/the-bearded-dad-hostel/";
 const WHATSAPP_URL = "https://wa.me/355695539156";
-// Update SITE_URL to your live domain before deploying
-const SITE_URL = "https://beardeddadhostel.com";
+const SITE_URL = "https://bluedoorhostel.vercel.app";
 
 const galleryImages = [
   { src: gallery3, alt: "Interior lounge with chandelier", caption: "A chandelier, cosy corners, and doors that lead to somewhere good." },
