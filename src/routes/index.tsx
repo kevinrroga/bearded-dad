@@ -287,7 +287,7 @@ const schemaGraph = {
           name: "What are the check-in hours?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Check-in is from 12:00 to 00:00. Late arrivals after 01:30 with prior notice carry a €5 (500 lek) charge. Arriving after 01:00 without notifying us in advance may incur additional fees.",
+            text: "Check-in is from 13:00 to 00:00. Late arrivals after 01:30 with prior notice carry a €5 (500 lek) charge. Arriving after 01:00 without notifying us in advance may incur additional fees.",
           },
         },
         {

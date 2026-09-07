@@ -153,7 +153,7 @@ export const translations = {
       label: 'FAQ',
       heading: 'Good to know',
       items: [
-        { q: 'What are the check-in hours?', a: 'Check-in is from 12:00 to 00:00. Late arrivals after 01:30 with prior notice carry a €5 (500 lek) charge. Arriving after 01:00 without notifying us in advance may incur additional fees.' },
+        { q: 'What are the check-in hours?', a: 'Check-in is from 13:00 to 00:00. Late arrivals after 01:30 with prior notice carry a €5 (500 lek) charge. Arriving after 01:00 without notifying us in advance may incur additional fees.' },
         { q: 'When is check-out?', a: 'Check-out is before 11:00. Reception is open 08:00 to 01:00 if you need assistance.' },
         { q: 'What is the cancellation policy?', a: 'Free cancellation up to 1 day before arrival. A late cancellation or no-show will be charged the full price of your stay.' },
         { q: 'How can I pay?', a: 'Payment is made upon arrival, by cash or card. Taxes are not included in the listed room rates.' },
@@ -328,7 +328,7 @@ export const translations = {
       label: 'Pyetje të Shpeshta',
       heading: 'Mirë të dish',
       items: [
-        { q: 'Cilat janë orët e check-in?', a: 'Check-in është nga ora 12:00 deri në 00:00. Mbërritjet e vona pas orës 01:30 me njoftim paraprak kanë një tarifë prej €5 (500 lekë). Mbërritja pas orës 01:00 pa na njoftuar paraprakisht mund të sjellë tarifa shtesë.' },
+        { q: 'Cilat janë orët e check-in?', a: 'Check-in është nga ora 13:00 deri në 00:00. Mbërritjet e vona pas orës 01:30 me njoftim paraprak kanë një tarifë prej €5 (500 lekë). Mbërritja pas orës 01:00 pa na njoftuar paraprakisht mund të sjellë tarifa shtesë.' },
         { q: 'Kur është check-out?', a: 'Check-out është para orës 11:00. Recepsioni është i hapur nga ora 08:00 deri në 01:00 nëse keni nevojë për ndihmë.' },
         { q: 'Cila është politika e anulimit?', a: 'Anulim falas deri 1 ditë para mbërritjes. Një anulim i vonuar ose moparaqitje do të tarifohet me çmimin e plotë të qëndrimit.' },
         { q: 'Si mund të paguaj?', a: 'Pagesa bëhet pas mbërritjes, me para në dorë ose kartë. Taksat nuk përfshihen në tarifat e listuara të dhomave.' },
