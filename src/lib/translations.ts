@@ -12,6 +12,7 @@ export const translations = {
     ],
     hero: {
       badge: 'Tirana, Albania',
+      prefix: 'A ',
       rotatingWords: ['family home', 'social space', 'warm welcome', 'Tirana hideout'],
       tagline: '. Now yours for a few nights.',
       description:
@@ -186,6 +187,7 @@ export const translations = {
     ],
     hero: {
       badge: 'Tiranë, Shqipëri',
+      prefix: 'Një ',
       rotatingWords: ['shtëpi familjare', 'hapësirë sociale', 'mirëpritje e ngrohtë', 'strehë në Tiranë'],
       tagline: '. Tani e jotja për disa netë.',
       description:

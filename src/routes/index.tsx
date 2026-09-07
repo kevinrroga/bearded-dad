@@ -350,7 +350,7 @@ function Index() {
               <Star className="size-3.5" /> {t.hero.badge}
             </p>
             <h1 className="font-display text-4xl leading-[1.1] text-primary-foreground sm:text-6xl">
-              {"A "}
+              {t.hero.prefix}
               <span className="relative inline-block overflow-hidden align-bottom pb-1">
                 <RotatingText
                   texts={t.hero.rotatingWords}
