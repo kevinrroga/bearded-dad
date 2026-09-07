@@ -34,6 +34,8 @@ import {
   Landmark,
   ShoppingBasket,
   Waves,
+  X,
+  Maximize2,
 } from "lucide-react";
 import { BeardedDadSketch } from "@/components/BeardedDadSketch";
 import { BeardStrokeAnimation } from "@/components/BeardStrokeAnimation";
@@ -245,6 +247,15 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [isDark, setIsDark] = useState(false);
   const [lang, setLang] = useState<Lang>('en');
+  const [storyLightboxOpen, setStoryLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    if (!storyLightboxOpen) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setStoryLightboxOpen(false); };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handler);
+    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', handler); };
+  }, [storyLightboxOpen]);
 
   const t = translations[lang];
 
@@ -502,14 +513,22 @@ function Index() {
       <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="grid items-stretch gap-8 lg:grid-cols-2">
           <Reveal className="overflow-hidden rounded-3xl bg-primary p-6 text-primary-foreground sm:p-8">
-            <img
-              src={storyImg}
-              alt="Bearded Dad Hostel building exterior in Tirana, Albania"
-              width={1200}
-              height={1408}
-              loading="lazy"
-              className="mb-6 h-64 w-full rounded-2xl object-cover sm:h-80"
-            />
+            <div
+              className="group relative mb-6 cursor-pointer overflow-hidden rounded-2xl"
+              onClick={() => setStoryLightboxOpen(true)}
+            >
+              <img
+                src={storyImg}
+                alt="Bearded Dad Hostel building exterior in Tirana, Albania"
+                width={1200}
+                height={1408}
+                loading="lazy"
+                className="h-64 w-full rounded-2xl object-cover sm:h-80 transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-primary/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-2xl">
+                <Maximize2 className="size-7 text-primary-foreground drop-shadow" />
+              </div>
+            </div>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <CountUp to={9.4} from={0} duration={2} className="font-display text-3xl text-accent" />
@@ -965,6 +984,28 @@ function Index() {
           © {new Date().getFullYear()} Bearded Dad Hostel · {t.footer.city}
         </div>
       </footer>
+      {/* STORY IMAGE LIGHTBOX */}
+      {storyLightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90"
+          onClick={() => setStoryLightboxOpen(false)}
+        >
+          <button
+            aria-label="Close"
+            onClick={() => setStoryLightboxOpen(false)}
+            className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/25"
+          >
+            <X className="size-5" />
+          </button>
+          <img
+            src={storyImg}
+            alt="Bearded Dad Hostel building exterior in Tirana, Albania"
+            className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
       {/* FLOATING WHATSAPP BUTTON */}
       <a
         href={WHATSAPP_URL}
