@@ -1134,12 +1134,12 @@ function Index() {
               <MapPin className="mt-0.5 size-4 shrink-0" />
               <span>Rruga Hamid Shijaku, Vila 13<br />Tirana, Albania</span>
             </a>
-            <a
-              href={`mailto:${EMAIL}`}
+            <button
+              onClick={() => { window.location.href = `mailto:${EMAIL_USER}@${EMAIL_DOMAIN}`; }}
               className="mt-3 flex items-center gap-2 text-primary-foreground/80 hover:text-accent"
             >
               <Mail className="size-4" /> {EMAIL}
-            </a>
+            </button>
             <a
               href="tel:+355695539156"
               className="mt-2 flex items-center gap-2 text-primary-foreground/80 hover:text-accent"
