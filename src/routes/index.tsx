@@ -92,64 +92,261 @@ const TITLE = "Bearded Dad Hostel | Family-Run Hostel in Tirana, Albania";
 const DESCRIPTION =
   "A family home turned social hostel in central Tirana. Rated 9.4 Superb on Hostelworld. Free breakfast, free bikes, nightly family dinners, and a dog named Nesha. Steps from Skanderbeg Square.";
 
-const schemaOrg = {
+const schemaGraph = {
   "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  name: "Bearded Dad Hostel",
-  description: DESCRIPTION,
-  url: SITE_URL,
-  telephone: "+355695539156",
-  email: "beardeddadhostel@gmail.com",
-  image: `${SITE_URL}/og-image.webp`,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Rruga Hamid Shijaku, Vila 13",
-    addressLocality: "Tirana",
-    addressCountry: "AL",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 41.3343197,
-    longitude: 19.8154374,
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "9.4",
-    bestRating: "10",
-    worstRating: "1",
-    reviewCount: "674",
-  },
-  priceRange: "ALL 1,710–2,081 per bed per night",
-  checkinTime: "13:00",
-  checkoutTime: "11:00",
-  amenityFeature: [
-    { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Free Bicycles", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Airport Transfer", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Luggage Storage", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Garden & Fire Pit", value: true },
-  ],
-  sameAs: [
-    BOOK_URL,
-    "https://www.booking.com/searchresults.html?ss=The+Bearded+Dad+Hostel+Tirana",
-  ],
-  review: [
+  "@graph": [
     {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Lexi" },
-      reviewBody:
-        "The best hostel I've ever stayed in. It's so social and feels like home! I would recommend it to anyone and would definitely be back when I'm in Tirana.",
-      reviewRating: { "@type": "Rating", ratingValue: "10", bestRating: "10" },
+      "@type": "LodgingBusiness",
+      "@id": `${SITE_URL}/#lodging`,
+      name: "Bearded Dad Hostel",
+      description: DESCRIPTION,
+      url: SITE_URL,
+      telephone: "+355695539156",
+      email: "beardeddadhostel@gmail.com",
+      image: `${SITE_URL}/og-image.webp`,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Rruga Hamid Shijaku, Vila 13",
+        addressLocality: "Tirana",
+        addressRegion: "Tirana County",
+        addressCountry: "AL",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 41.3343197,
+        longitude: 19.8154374,
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "9.4",
+        bestRating: "10",
+        worstRating: "1",
+        reviewCount: "674",
+      },
+      priceRange: "ALL 1,710–2,081 per bed per night",
+      checkinTime: "13:00",
+      checkoutTime: "11:00",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "08:00",
+        closes: "01:00",
+      },
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Free Bicycles", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Airport Transfer", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Luggage Storage", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Garden & Fire Pit", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Bar & Terrace", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Karaoke", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Free City Tour", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Car Hire", value: true },
+      ],
+      sameAs: [
+        BOOK_URL,
+        "https://www.booking.com/searchresults.html?ss=The+Bearded+Dad+Hostel+Tirana",
+      ],
+      containsPlace: [
+        {
+          "@type": "HotelRoom",
+          name: "Standard 8-Bed Mixed Dorm — Main Building",
+          description: "8-bed mixed dormitory in the main building. Includes air conditioning, security lockers, charging points, shared bathroom, and kitchen access. Free breakfast included daily.",
+          occupancy: { "@type": "QuantitativeValue", maxValue: 8 },
+          bed: { "@type": "BedDetails", typeOfBed: "Bunk bed", numberOfBeds: 4 },
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Charging Points", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Shared Bathroom", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Kitchen Access", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
+          ],
+          offers: {
+            "@type": "Offer",
+            price: "1710",
+            priceCurrency: "ALL",
+            description: "Per bed per night. Taxes not included.",
+          },
+        },
+        {
+          "@type": "HotelRoom",
+          name: "Standard 8-Bed Mixed Dorm — Annex",
+          description: "8-bed mixed dormitory in the annex building, 20 m from the main hostel. Includes air conditioning, security lockers, charging points, shared bathroom, and kitchen access. Free breakfast included daily.",
+          occupancy: { "@type": "QuantitativeValue", maxValue: 8 },
+          bed: { "@type": "BedDetails", typeOfBed: "Bunk bed", numberOfBeds: 4 },
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Charging Points", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Shared Bathroom", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Kitchen Access", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
+          ],
+          offers: {
+            "@type": "Offer",
+            price: "1710",
+            priceCurrency: "ALL",
+            description: "Per bed per night. Taxes not included.",
+          },
+        },
+        {
+          "@type": "HotelRoom",
+          name: "Standard 6-Bed Mixed Dorm",
+          description: "6-bed mixed dormitory in the main building. Includes air conditioning, security lockers, shared bathroom, and kitchen access. Free breakfast included daily.",
+          occupancy: { "@type": "QuantitativeValue", maxValue: 6 },
+          bed: { "@type": "BedDetails", typeOfBed: "Bunk bed", numberOfBeds: 3 },
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Shared Bathroom", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Kitchen Access", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
+          ],
+          offers: {
+            "@type": "Offer",
+            price: "1895",
+            priceCurrency: "ALL",
+            description: "Per bed per night. Taxes not included.",
+          },
+        },
+        {
+          "@type": "HotelRoom",
+          name: "Deluxe 5-Bed Mixed Dorm — Private Villa",
+          description: "5-bed mixed dormitory (3 singles + 2 bunks) in a private villa 100 m from the main hostel. Features a private en-suite bathroom and a fitted kitchen. Free breakfast included daily.",
+          occupancy: { "@type": "QuantitativeValue", maxValue: 5 },
+          bed: [
+            { "@type": "BedDetails", typeOfBed: "Single bed", numberOfBeds: 3 },
+            { "@type": "BedDetails", typeOfBed: "Bunk bed", numberOfBeds: 1 },
+          ],
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Private En-Suite Bathroom", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Fitted Kitchen", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
+          ],
+          offers: {
+            "@type": "Offer",
+            price: "1988",
+            priceCurrency: "ALL",
+            description: "Per bed per night. Taxes not included.",
+          },
+        },
+        {
+          "@type": "HotelRoom",
+          name: "Deluxe 6-Bed Female Dorm — Private Villa",
+          description: "Female-only 6-bed dormitory (6 bunk beds) in a private villa 100 m from the main hostel. Features a private en-suite bathroom and a fitted kitchen. Free breakfast included daily.",
+          occupancy: { "@type": "QuantitativeValue", maxValue: 6 },
+          bed: { "@type": "BedDetails", typeOfBed: "Bunk bed", numberOfBeds: 3 },
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Private En-Suite Bathroom", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Fitted Kitchen", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Security Lockers", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Free Breakfast", value: true },
+          ],
+          offers: {
+            "@type": "Offer",
+            price: "2081",
+            priceCurrency: "ALL",
+            description: "Per bed per night. Taxes not included. Female guests only.",
+          },
+        },
+      ],
+      review: [
+        {
+          "@type": "Review",
+          author: { "@type": "Person", name: "Anonymous" },
+          reviewBody: "Modern, clean rooms and great location. Breakfast each morning was a 12/10!",
+          reviewRating: { "@type": "Rating", ratingValue: "10", bestRating: "10" },
+        },
+        {
+          "@type": "Review",
+          author: { "@type": "Person", name: "Lexi" },
+          reviewBody: "The best hostel I've ever stayed in. It's so social and feels like home! I would recommend it to anyone and would definitely be back when I'm in Tirana.",
+          reviewRating: { "@type": "Rating", ratingValue: "10", bestRating: "10" },
+        },
+        {
+          "@type": "Review",
+          author: { "@type": "Person", name: "Mariam" },
+          reviewBody: "This one felt like a hotel omg. The staff were friendly and kind. It was lively with events happening every day. Thank you guys, definitely returning!",
+          reviewRating: { "@type": "Rating", ratingValue: "10", bestRating: "10" },
+        },
+      ],
     },
     {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Mariam" },
-      reviewBody:
-        "This one felt like a hotel omg. The staff were friendly and kind. It was lively with events happening every day. Thank you guys, definitely returning!",
-      reviewRating: { "@type": "Rating", ratingValue: "10", bestRating: "10" },
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What are the check-in hours?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Check-in is from 12:00 to 00:00. Late arrivals after 01:30 with prior notice carry a €5 (500 lek) charge. Arriving after 01:00 without notifying us in advance may incur additional fees.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "When is check-out?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Check-out is before 11:00. Reception is open 08:00 to 01:00 if you need assistance.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is the cancellation policy?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Free cancellation up to 1 day before arrival. A late cancellation or no-show will be charged the full price of your stay.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How can I pay?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Payment is made upon arrival, by cash or card. Taxes are not included in the listed room rates.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is breakfast included?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, a free breakfast is included with every stay, every day.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is there a minimum age?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, guests must be at least 18 years old.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is smoking allowed?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The hostel is a non-smoking facility. Please smoke only in designated outdoor areas.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Are pets allowed?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No outside pets are allowed. Nesha, our resident hostel dog, already has the place covered.",
+          },
+        },
+      ],
     },
   ],
 };
@@ -192,7 +389,7 @@ export const Route = createFileRoute("/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schemaOrg),
+        children: JSON.stringify(schemaGraph),
       },
     ],
   }),
